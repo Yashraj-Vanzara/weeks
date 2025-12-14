@@ -44,8 +44,8 @@ console.log(typeof isRizzer)
 
 // * Concatenation
 
-const lname=riffer
-const NAme=john
+const lname="riffer"
+const NAme="john"
 
 // ? this is es6 method template string
 console.log(` the full name is ${NAme} ${lname}`)
@@ -81,3 +81,56 @@ console.log(number[2])
 
 // ? To check if something is array
 // * (Array.isArray(numbers)) this method is used 
+
+
+// ! Objects
+
+const obj={
+    fnname:"yashraj",
+    lname:"vanzara",
+    address:{
+        city:"boston"
+    }
+}
+
+console.log(obj) 
+//*  destructuring 
+
+const {fnname }=obj
+
+// * for nested destructuring like address
+const{address:{city}}=obj
+
+// ? add values in obj
+
+obj.likes="none"
+
+// ! Arrays of objects
+
+const todos = [
+  {
+    id: 1,
+    text: 'Take out trash',
+    isCompleted: true
+  },
+  {
+    id: 2,
+    text: 'Meeting with boss',
+    isCompleted: true
+  },
+  {
+    id: 3,
+    text: 'Dentist appt',
+    isCompleted: false
+  }
+];
+
+console.log(todos[1].text);
+
+
+// ! json
+
+// ? to convert anythinf to json 
+
+const todoJSON=JSON.stringify(todos);
+console.log(todoJSON)
