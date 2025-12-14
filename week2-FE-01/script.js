@@ -235,3 +235,23 @@ const add=(num1,num2)=>{console.log(num1+num2)}
 
 const sub=num1=>num1-5
 
+// !classes
+
+class person{
+  constructor(fname,lname,dob){
+    this.fname=fname
+    this.lname=lname
+    this.dob=new Date(dob)
+  }
+
+  getfullname(){
+    return `${this.fname} ${this.lname}`
+  }
+  getBrithyear(){
+    return `${this.dob.getFullYear}`
+  }
+}
+
+const person1=new person("yashraj","vanzara","8-1-2005")
+console.log(person1)
+console.log(person1.getBrithyear())
