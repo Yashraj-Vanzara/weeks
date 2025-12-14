@@ -286,3 +286,4 @@ btn.addEventListener('click',function(e){
   console.log(e.target.className) //! target gives us current element on which event happened
   btn.style.background='red' // ! adding bgcolor on btn when click on btn
 })
+
