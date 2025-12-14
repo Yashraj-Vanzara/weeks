@@ -255,3 +255,25 @@ class person{
 const person1=new person("yashraj","vanzara","8-1-2005")
 console.log(person1)
 console.log(person1.getBrithyear())
+
+
+// ! DOM 
+
+//*select single element 
+
+document.getElementById('my-form')
+document.querySelector('.my-form')
+
+// *Multiple Element selection
+
+// ? HTML collection we can't use array methods 
+// ? On node list we can use array methods
+
+
+document.querySelectorAll('item')
+
+// !some methods
+
+// * .remove()
+// * .lastElementChild.remove()  - removes last child
+// * .firstElementChild.textContent='Hello'
