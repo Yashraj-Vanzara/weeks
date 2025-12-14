@@ -1,75 +1,70 @@
 // ! console basics
 
 // ? Console is used to console(print) something on console
-console.log("Hello world")  
+console.log("Hello world");
 //* There are various types of consoles
 
 // ! Types
 
-
 // ? Used for warning
-console.warn("Warning")
+console.warn("Warning");
 
 // !used for error
-console.error("Error")
-
+console.error("Error");
 
 // ! variables
 
 // * can change the value of let
-let name="yashraj" 
+let name = "yashraj";
 
 // * cannot change the value of const
-const id="784sd8sd48"
-
+const id = "784sd8sd48";
 
 // ! Data types primitive
 
 // * String,Numbers,Boolean,null,undefined
 
-const fname="Yashraj"
-const number=50
-const isRizzer=true
-const value=null  
-const successRate=undefined
-
+const fname = "Yashraj";
+const number = 50;
+const isRizzer = true;
+const value = null;
+const successRate = undefined;
 
 //  ? To test check the type of variable use typeof
 
 // * Example
 
-console.log(typeof isRizzer)
+console.log(typeof isRizzer);
 
 // ! most imp Type of null is object
 
 // * Concatenation
 
-const lname="riffer"
-const NAme="john"
+const lname = "riffer";
+const NAme = "john";
 
 // ? this is es6 method template string
-console.log(` the full name is ${NAme} ${lname}`)
+console.log(` the full name is ${NAme} ${lname}`);
 
 // ! String Methods
 
-const RandomWord="Hello World"
+const RandomWord = "Hello World";
 
 // ? Gives length of string
-console.log(RandomWord.length)
+console.log(RandomWord.length);
 
-// Similar methods are 
+// Similar methods are
 // ! RandomWord.toUpperCase()
 // ! RandomWord.toLowerCase()
 //  !RandomWord.substring(0,8)  it will take upto 8-1 =7 so (0,7)
 //  !RandomWord.split()
 
-
-// ! Non-primitives 
+// ! Non-primitives
 
 // * Arrays- variables that hold multiple values (in js we can hold different data types in single array)
 
-const numbers=[1,2,3,4,5]
-console.log(number[2])  
+const numbers = [1, 2, 3, 4, 5];
+console.log(number[2]);
 
 // ! Some Array methods
 
@@ -80,104 +75,136 @@ console.log(number[2])
 // ! numbers.indexOf("1") gives index of the value
 
 // ? To check if something is array
-// * (Array.isArray(numbers)) this method is used 
-
+// * (Array.isArray(numbers)) this method is used
 
 // ! Objects
 
-const obj={
-    fnname:"yashraj",
-    lname:"vanzara",
-    address:{
-        city:"boston"
-    }
-}
+const obj = {
+  fnname: "yashraj",
+  lname: "vanzara",
+  address: {
+    city: "boston",
+  },
+};
 
-console.log(obj) 
-//*  destructuring 
+console.log(obj);
+//*  destructuring
 
-const {fnname }=obj
+const { fnname } = obj;
 
 // * for nested destructuring like address
-const{address:{city}}=obj
+const {
+  address: { city },
+} = obj;
 
 // ? add values in obj
 
-obj.likes="none"
+obj.likes = "none";
 
 // ! Arrays of objects
 
 const todos = [
   {
     id: 1,
-    text: 'Take out trash',
-    isCompleted: true
+    text: "Take out trash",
+    isCompleted: true,
   },
   {
     id: 2,
-    text: 'Meeting with boss',
-    isCompleted: true
+    text: "Meeting with boss",
+    isCompleted: true,
   },
   {
     id: 3,
-    text: 'Dentist appt',
-    isCompleted: false
-  }
+    text: "Dentist appt",
+    isCompleted: false,
+  },
 ];
 
 console.log(todos[1].text);
 
-
 // ! json
 
-// ? to convert anythinf to json 
+// ? to convert anythinf to json
 
-const todoJSON=JSON.stringify(todos);
-console.log(todoJSON)
+const todoJSON = JSON.stringify(todos);
+console.log(todoJSON);
 
 // ! Loops
 
 for (let index = 0; index < todos.length; index++) {
-    const element = todos[index];
-    console.log(element)
-    
+  const element = todos[index];
+  console.log(element);
 }
 
 // ! while loop
 
-let num=1
-while(num<10){
-    console.log(num)
-    num++
+let num = 1;
+while (num < 10) {
+  console.log(num);
+  num++;
 }
 
 // ! Forof loop
 
-for(todo of todos){
-    console.log(todo.text)
+for (todo of todos) {
+  console.log(todo.text);
 }
 
 // ! Array methods forEach,map,filter
 
 // !for each loop
 
-todos.forEach(function(todo){
-    console.log(todo)
-})
+todos.forEach(function (todo) {
+  console.log(todo);
+});
 
 // !map returns new arrays
 
-const newArray=todos.map(function(todo){
-    return todo.text;
-})
+const newArray = todos.map(function (todo) {
+  return todo.text;
+});
 
 // !filter
 
-const isCompleted=todos.filter(function(todo){
-  return todo.isCompleted==="true"
-}).map(function(todo){
-    return todo.text
-})
+const isCompleted = todos
+  .filter(function (todo) {
+    return todo.isCompleted === "true";
+  })
+  .map(function (todo) {
+    return todo.text;
+  });
 
-console.log(isCompleted)
+console.log(isCompleted);
 
+//  !  conditionals
+
+const x = 10;
+// ! == check the value
+
+if (x == 10) console.log(true);
+
+//! === checks both value and type
+
+if (x === "10") console.log(true);
+else console.log(false);
+
+// ! if else first checks if condition if if condition not satisfy then output fromm else
+// ! we can use multiple conditions using if else if else ladder
+
+// * && if both value is true prints ans
+// * || if one value is true it prints ans
+
+// *ternary operator
+
+const z = 10;
+const v = z > 5 ? true : false;
+
+// !switch case
+switch (key) {
+  case value:
+    break;
+
+  default:
+    break;
+}
