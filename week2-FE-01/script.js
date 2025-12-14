@@ -62,3 +62,22 @@ console.log(RandomWord.length)
 // ! RandomWord.toLowerCase()
 //  !RandomWord.substring(0,8)  it will take upto 8-1 =7 so (0,7)
 //  !RandomWord.split()
+
+
+// ! Non-primitives 
+
+// * Arrays- variables that hold multiple values (in js we can hold different data types in single array)
+
+const numbers=[1,2,3,4,5]
+console.log(number[2])  
+
+// ! Some Array methods
+
+// !numbers.push() add value at end
+//! numbers.pop() removes value from end
+// !  numbers.unshift() add value at start
+// !numbers.shift() removes value from start
+// ! numbers.indexOf("1") gives index of the value
+
+// ? To check if something is array
+// * (Array.isArray(numbers)) this method is used 
