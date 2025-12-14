@@ -277,3 +277,12 @@ document.querySelectorAll('item')
 // * .remove()
 // * .lastElementChild.remove()  - removes last child
 // * .firstElementChild.textContent='Hello'
+
+// !Events
+
+const btn=document.querySelector('.btn')
+
+btn.addEventListener('click',function(e){
+  console.log(e.target.className) //! target gives us current element on which event happened
+  btn.style.background='red' // ! adding bgcolor on btn when click on btn
+})
