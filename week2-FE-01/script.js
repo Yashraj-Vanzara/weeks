@@ -134,3 +134,50 @@ console.log(todos[1].text);
 
 const todoJSON=JSON.stringify(todos);
 console.log(todoJSON)
+
+// ! Loops
+
+for (let index = 0; index < todos.length; index++) {
+    const element = todos[index];
+    console.log(element)
+    
+}
+
+// ! while loop
+
+let num=1
+while(num<10){
+    console.log(num)
+    num++
+}
+
+// ! Forof loop
+
+for(todo of todos){
+    console.log(todo.text)
+}
+
+// ! Array methods forEach,map,filter
+
+// !for each loop
+
+todos.forEach(function(todo){
+    console.log(todo)
+})
+
+// !map returns new arrays
+
+const newArray=todos.map(function(todo){
+    return todo.text;
+})
+
+// !filter
+
+const isCompleted=todos.filter(function(todo){
+  return todo.isCompleted==="true"
+}).map(function(todo){
+    return todo.text
+})
+
+console.log(isCompleted)
+
