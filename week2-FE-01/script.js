@@ -208,3 +208,30 @@ switch (key) {
   default:
     break;
 }
+
+
+// !Functions
+
+function nameee(){
+  console.log("yashraj")
+}
+
+nameee()
+
+
+// !function with parameter
+
+function lbuy(a=1,b=1){
+  return a+b
+}
+
+console.log(lbuy(5,5))
+
+// !Arrow funtions
+
+const add=(num1,num2)=>{console.log(num1+num2)}
+
+// * if only one parameter
+
+const sub=num1=>num1-5
+
