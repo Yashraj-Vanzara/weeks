@@ -1,0 +1,54 @@
+/* ! CSS selectors */
+
+/* ? universal selector */
+* {
+  background-color: red;
+}
+
+/* ? element selector */
+span {
+  background-color: aqua;
+}
+
+/* ? Class selector */
+.mboy {
+  background-color: aquamarine;
+}
+/* ? id selector */
+
+#mboy {
+  background-color: aqua;
+}
+
+/* ? to select anyhting inside ul li  we seperate it with space */
+
+ul li {
+  background-color: azure;
+}
+
+/* div > b  > is used for direct child */
+div > b {
+  background-color: aqua;
+}
+/* ! Pseudo classes */
+
+li:hover {
+  background-color: aqua;
+}
+
+li:focus {
+  background-color: aqua;
+}
+
+li:nth-child(2) {
+  background-color: aquamarine;
+}
+/* !pseudo elements  */
+
+li::before {
+  content: "";
+}
+
+li::after {
+  content: "";
+}
