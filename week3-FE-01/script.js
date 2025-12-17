@@ -53,3 +53,14 @@ console.log(bookList.parentNode)
 
 console.log(bookList.childNodes) //!also gives line break as text
 console.log(bookList.children)
+
+// ! Traversing node part2 --lesson8
+const bookLlist=document.querySelector("#book-list")
+console.log('The next sibling is',bookLlist.nextSibling)
+console.log('The next sibling is',bookLlist.nextElementSibling)
+
+console.log('the previous sibling is',bookLlist.previousSibling)
+console.log('the previous sibling is',bookLlist.previousElementSibling)
+
+
+
