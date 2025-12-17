@@ -116,4 +116,11 @@ addform.addEventListener('click',function(e){
 //! to add styles we add .style to element and any css property 
 // ! book.style.marginTop
 // !To add new class to a element use classlist.add
+// ! to remove class change add with remove
+// ?
 
+// ! Attributes --lesson14
+// ! we can change attribute value using setAttribute 
+// ! get attribute value usig getAttribute
+// ! remove using removeAtrribute
+// ! can check if the elemnt has specific attribute by using hasAttribute
