@@ -19,3 +19,12 @@ const li =document.getElementsByTagName('li')
 
 // ! How to convert a anything in array
 //?  Array.from(h1)
+
+
+// ! Query Selector --Lesson4
+const ans=document.querySelector('#wrapper')
+// return only one element
+
+// ! multiple element selector
+const books=document.querySelectorAll('#book-list li .name')
+// return multiple lements
