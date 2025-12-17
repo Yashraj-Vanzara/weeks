@@ -37,3 +37,11 @@ books.forEach((ele)=>(
 
 const booklist=document.querySelector('#book-list')
 booklist.innerHTML='<h2>Books And more books...</h2>'
+
+// ! Nodes --lesson6
+const banner=document.querySelector('#page-banner')
+console.log('#page-banner node type is :',banner.nodeType)
+console.log('#page-banner node name is :',banner.nodeName)
+console.log('#page-banner has child nodes is :',banner.hasChildNodes())
+
+const clonnedBanner=banner.cloneNode(true) //! we pass true because we need to clone deeply 
