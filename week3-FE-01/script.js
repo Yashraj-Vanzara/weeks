@@ -84,8 +84,28 @@ Array.from(btns).forEach((ele)=>(
 
 
 // ! interact with form --lesson11
-const addform=document.forms['add-book']
+// const addform=document.forms['add-book']
+// addform.addEventListener('click',function(e){
+//     e.preventDefault()
+//     const value=addform.querySelector('input[type="text"]').value
+// })
+
+// !creating Elements --lesson12
+
+ const addform=document.forms['add-book']
 addform.addEventListener('click',function(e){
     e.preventDefault()
     const value=addform.querySelector('input[type="text"]').value
+    const li=document.createElement('li')
+    const bookname=document.createElement('span')
+    const deletebtn=document.createElement('span')
+
+    bookname.textContent=value
+    deletebtn.textContent='delete'
+    deletebtn.setAttribute('class')
+
+    li.appendChild(bookname)
+    li.appendChild(deletebtn)
+
+    bookList.appendChild(li)
 })
