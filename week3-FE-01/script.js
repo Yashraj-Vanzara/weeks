@@ -45,3 +45,11 @@ console.log('#page-banner node name is :',banner.nodeName)
 console.log('#page-banner has child nodes is :',banner.hasChildNodes())
 
 const clonnedBanner=banner.cloneNode(true) //! we pass true because we need to clone deeply 
+
+// ! Traversing node part1 --lesson7
+const bookList=document.querySelector("#book-list")
+console.log(bookList.parentElement)
+console.log(bookList.parentNode)
+
+console.log(bookList.childNodes) //!also gives line break as text
+console.log(bookList.children)
