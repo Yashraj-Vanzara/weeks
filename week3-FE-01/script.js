@@ -78,3 +78,6 @@ Array.from(btns).forEach((ele)=>(
 
 
 
+
+// ! Event Bubbling -- lesson10
+// ? means event will propogate uper ways if click on li and ul have even it will fire
