@@ -124,3 +124,16 @@ addform.addEventListener('click',function(e){
 // ! get attribute value usig getAttribute
 // ! remove using removeAtrribute
 // ! can check if the elemnt has specific attribute by using hasAttribute
+
+// ?
+
+
+// !Checkboxes and changeEvents --lesson15
+const hideBox=document.querySelector('#hide')
+hideBox.addEventListener('change',function(e){
+    if(hideBox.checked){
+        bookList.style.display="none"
+    }else{
+            bookList.style.display="initial"
+    }
+})
