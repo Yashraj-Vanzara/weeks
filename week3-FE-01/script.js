@@ -81,3 +81,11 @@ Array.from(btns).forEach((ele)=>(
 
 // ! Event Bubbling -- lesson10
 // ? means event will propogate uper ways if click on li and ul have even it will fire
+
+
+// ! interact with form --lesson11
+const addform=document.forms['add-book']
+addform.addEventListener('click',function(e){
+    e.preventDefault()
+    const value=addform.querySelector('input[type="text"]').value
+})
