@@ -36,7 +36,7 @@ books.forEach((ele)=>(
 ))
 
 const booklist=document.querySelector('#book-list')
-booklist.innerHTML='<h2>Books And more books...</h2>'
+// booklist.innerHTML='<h2>Books And more books...</h2>'
 
 // ! Nodes --lesson6
 const banner=document.querySelector('#page-banner')
@@ -61,6 +61,20 @@ console.log('The next sibling is',bookLlist.nextElementSibling)
 
 console.log('the previous sibling is',bookLlist.previousSibling)
 console.log('the previous sibling is',bookLlist.previousElementSibling)
+
+// ! Events --lesson9
+const h2=document.querySelector('#book-list h2')
+h2.addEventListener('click',function(event){
+    console.log(event.target)
+})
+
+const btns=document.querySelectorAll('#book-list .delete')
+Array.from(btns).forEach((ele)=>(
+    ele.addEventListener("click",function(e){
+        e.target.closest('li').remove()
+    })
+))
+
 
 
 
