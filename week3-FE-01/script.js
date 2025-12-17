@@ -102,10 +102,18 @@ addform.addEventListener('click',function(e){
 
     bookname.textContent=value
     deletebtn.textContent='delete'
-    deletebtn.setAttribute('class')
+        deletebtn.classList.add('delete')
+        bookname.classList.add('name')
 
     li.appendChild(bookname)
     li.appendChild(deletebtn)
 
     bookList.appendChild(li)
 })
+
+
+// !Styles and classes --lesson13
+//! to add styles we add .style to element and any css property 
+// ! book.style.marginTop
+// !To add new class to a element use classlist.add
+
