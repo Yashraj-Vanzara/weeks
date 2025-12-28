@@ -158,4 +158,10 @@ width: 100%;
   .top{
     display: none;
   }
+
+  h2 .sp {
+  color: green;
+  font-size: 30px;
+  font-weight: bold;
+}
 }
