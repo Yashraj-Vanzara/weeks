@@ -137,3 +137,19 @@ hideBox.addEventListener('change',function(e){
             bookList.style.display="initial"
     }
 })
+
+// ! search filter --lesson16
+const searchbar=document.forms['search-books'].querySelector('input')
+searchbar.addEventListener('keyup',function(e){
+    const term=e.target.value.toLowerCase()
+    const books=bookList.getElementsByTagName('li')
+    Array.from(books).forEach((ele)=>{
+        const title=books.firstElementChild.textContent
+        if(title.toLowerCase().indexOf(term)!=-1){
+            books.style.display='block'
+        }
+        else{
+            books.style.display='none'
+        }
+    })
+})
