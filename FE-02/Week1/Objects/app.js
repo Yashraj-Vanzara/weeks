@@ -68,3 +68,31 @@ const area=7.7
 console.log(Math.random())
 console.log(Math.random()*100)
 
+
+// ! primitive vs reference type
+// primitive variable is stored on stack memory
+// Reference type is stored in heap memory
+
+// Primitive
+let score1 = 50
+let score2 = score1
+
+// console.log(`score1 is ${score1} and score2 is ${score2}`)
+
+score1 = 100
+
+// console.log(`score1 is ${score1} and score2 is ${score2}`)
+
+// Reference
+let user1 = {
+    name: 'ansh',
+    age: 21
+}
+
+let user2 = user1
+
+console.log(`name of user 1 is ${user1.name} and name of user 2 is ${user2.name}`)
+
+user1.name = 'anshu'
+
+console.log(`name of user 1 is ${user1.name} and name of user 2 is ${user2.name}`)
