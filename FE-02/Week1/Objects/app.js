@@ -49,3 +49,22 @@ console.log(user["name"]);
 // user[key]
 
 // ! Type of object is object
+
+
+// * Math object 
+
+// console.log(Math)
+// console.log(Math.PI.toFixed(3))
+// console.log(Math.E)
+
+const area=7.7
+// console.log(Math.round(area)) --output 8
+// console.log(Math.floor(area)) --output 7
+// console.log(Math.ceil(area))  --output 8
+//  console.log(Math.trunc(area))  --output 7 --lives the decimal part keeps only number
+
+
+//!random number
+console.log(Math.random())
+console.log(Math.random()*100)
+
