@@ -5,7 +5,15 @@ let user={
     age:30,
     email:"crrystal@thenetninja.co.uk",
     location:"berlin",
-    blogs:["mac & cheese","Hello World"]
+    blogs:["mac & cheese","Hello World"],
+    login:function(){
+        console.log('user logged in')
+    },
+    logout:function(){
+         console.log('user logged  out')
+
+    },
+    
 }
 
 // * To access any of these
