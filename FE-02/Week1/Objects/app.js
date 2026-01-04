@@ -13,6 +13,12 @@ let user={
          console.log('user logged  out')
 
     },
+
+    logblogs:function(){
+        console.log("This user have written this blogs")
+        this.blogs.forEach(blog=>{console.log(blog)})
+    }
+    // !This refers to blogs
     
 }
 
@@ -35,6 +41,8 @@ console.log(user["name"])
 // user[key]
 
 // ! Type of object is object
+
+
 
 
 
