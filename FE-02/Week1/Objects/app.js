@@ -28,3 +28,6 @@ console.log(user["name"])
 
 // ! Type of object is object
 
+
+
+
