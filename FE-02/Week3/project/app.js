@@ -4,7 +4,7 @@ const data = fs.readFileSync("./fe02_bank.csv", "utf-8");
 const line = data.split("\n");
 
 const headers = line[0].trim().split(",");
-console.log(headers);
+// console.log(headers);
 
 const transactions = [];
 
