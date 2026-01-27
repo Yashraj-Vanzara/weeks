@@ -14,4 +14,4 @@ let cups=Math.random()>0.5?10:'5'
 // ! annotation
 
 let flvr:string="rose"
-// giving explict data type
+// giving explict data type 
