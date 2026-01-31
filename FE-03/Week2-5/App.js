@@ -3,4 +3,18 @@
 const heading = React.createElement("h1", {id:"Parent"}, "Hello world");
 // heading is object also createElement gives us object where {} is attribute and hello world is children and whole thing is props
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading);
+// root.render(heading); 
+
+
+// Making nested structure
+/** 
+ * 
+ * <div id='parent'>
+ *  <div id='child'>
+ * <h1> I,m h1 tag</h1>
+ * </div>
+ * </div>
+ */
+
+const parent=React.createElement('div',{id:"parent"},React.createElement('div',{id:"child"},React.createElement('h1',{},"Im h1 tag")))
+root.render(parent); 
