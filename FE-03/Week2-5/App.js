@@ -12,9 +12,12 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
  * <div id='parent'>
  *  <div id='child'>
  * <h1> I,m h1 tag</h1>
+ * <h2> I,m h1 tag</h2>
  * </div>
  * </div>
  */
 
-const parent=React.createElement('div',{id:"parent"},React.createElement('div',{id:"child"},React.createElement('h1',{},"Im h1 tag")))
+const parent=React.createElement('div',{id:"parent"},React.createElement('div',{id:"child"},[React.createElement('h1',{},"Im h1 tag"),React.createElement('h2',{},"Im h2 tag")]))
 root.render(parent); 
+// When render it creates corresponding tag
+// when when to pass more than one child we pass as array of children
