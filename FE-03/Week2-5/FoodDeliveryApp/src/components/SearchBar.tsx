@@ -2,7 +2,9 @@
 
 const SearchBar: React.FC = () => {
   return (
-    <div>SearchBar</div>
+    <div className="Search">
+        <input className="SearchInput" type="text" placeholder="Search for restaurants or cuisines" />
+    </div>
   )
 }
 
