@@ -8,7 +8,7 @@ const Heading:React.FC = (props:any) :JSX.Element => {
   )
 }
 
-export const Title:React.FC=():JSX.Element=>{
+export  const Title:React.FC=():JSX.Element=>{
     return(<div>
             <h1>Im from title</h1>
         </div>

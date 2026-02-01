@@ -8,3 +8,4 @@
  //! Components is a peice of ui like header and footer  
  //! Components is a function which return jsx 
 //! First letter of comonents is to be capital
+//!component compostion is when we pass other component in other component
