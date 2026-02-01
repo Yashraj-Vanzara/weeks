@@ -1,0 +1,17 @@
+{
+  "name": "week2-5",
+  "version": "1.0.0",
+  "description": "This is my react learning with typescript",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Yashraj Vanzara",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.3"
+  }
+}
