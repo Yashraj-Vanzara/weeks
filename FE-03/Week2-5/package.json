@@ -2,13 +2,15 @@
   "name": "week2-5",
   "version": "1.0.0",
   "description": "This is my react learning with typescript",
-  "main": "App.js",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
   "author": "Yashraj Vanzara",
   "license": "ISC",
   "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
