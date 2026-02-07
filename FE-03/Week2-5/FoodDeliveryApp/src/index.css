@@ -106,3 +106,16 @@ font-size: 20px;
 font-size: 16px;
 
 }
+
+.bp{
+  
+  padding-left:40px ;
+ 
+}
+
+.f-btn{
+margin: 10px;
+/* padding: 10px; */
+cursor: pointer;
+
+}
