@@ -1,3 +1,4 @@
+
 type RestaurantCardProps = {
     Name: string;
     cuisine: string;
