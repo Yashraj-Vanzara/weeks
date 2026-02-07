@@ -11,31 +11,17 @@ const RestaurantContainer: React.FC = () => {
   async function fetchData() {
     try {
       const resp = await fetch(
-        "https://foodfire.onrender.com/api/restaurants?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING"
+        "https://foodfire.onrender.com/api/restaurants?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING",
       );
       const json = await resp.json();
-      console.log("api json:", json);
 
-      // Try expected path first
       let restaurants: any[] =
-        json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants ??
-        [];
-
-      // If not found, search cards for any restaurants arrays
-      if (!Array.isArray(restaurants) || restaurants.length === 0) {
-        const fromCards =
-          (json?.data?.cards || []).flatMap((c: any) => {
-            const r = c?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-            return Array.isArray(r) ? r : [];
-          }) || [];
-        restaurants = fromCards;
-      }
+        json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants ?? [];
 
       setList(restaurants);
-    
     } catch (error) {
       console.error("Fetch error, falling back to mockData:", error);
-     
     } finally {
       setLoading(false);
     }
@@ -45,9 +31,8 @@ const RestaurantContainer: React.FC = () => {
     fetchData();
   }, []);
 
-
   if (loading) {
-    return<Shimmer/>
+    return <Shimmer />;
   }
 
   return (
@@ -59,7 +44,9 @@ const RestaurantContainer: React.FC = () => {
           (list || []).map((item: any, idx: number) => {
             // item may be { info: {...} } or sometimes an object itself
             const info = item?.info ?? item ?? {};
-            const cuisines = Array.isArray(info.cuisines) ? info.cuisines.join(", ") : "";
+            const cuisines = Array.isArray(info.cuisines)
+              ? info.cuisines.join(", ")
+              : "";
             const imageId = info?.cloudinaryImageId ?? "";
 
             return (
