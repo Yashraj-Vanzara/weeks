@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 // import { mockData } from "../utils/mockData.js";
 import { CDN_URL } from "../utils/constants";
+import Shimmer from "./Shimmer";
 
 const RestaurantContainer: React.FC = () => {
   const [list, setList] = useState<any[]>([]);
@@ -46,7 +47,7 @@ const RestaurantContainer: React.FC = () => {
 
 
   if (loading) {
-    return <div>Loading restaurants...</div>;
+    return<Shimmer/>
   }
 
   return (
