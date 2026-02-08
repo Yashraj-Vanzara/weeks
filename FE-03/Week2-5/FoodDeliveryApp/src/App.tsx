@@ -19,7 +19,7 @@ const App = () => {
 }
 
 
-export const appRouter=createBrowserRouter([
+export const AppRouter=createBrowserRouter([
   {
     path:"/",
     element:<App/>,
