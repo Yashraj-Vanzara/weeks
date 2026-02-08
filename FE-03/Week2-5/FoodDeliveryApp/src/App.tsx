@@ -4,6 +4,7 @@ import Header from './components/Header'
 import About from './components/About'
 import Contact from './components/Contact'
 import { Error } from './components/Error'
+import RestaurantMenu from './components/RestaurantMenu'
 const App = () => {
   return (
     <div className="App">
@@ -30,6 +31,9 @@ export const appRouter=createBrowserRouter([
   {
     path:"/contact",
     element:<Contact/>
+  },{
+    path:"/restaurants/:id",
+    element:<RestaurantMenu/>
   }
     ],
     errorElement:<Error/>
