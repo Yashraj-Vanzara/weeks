@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 // import { mockData } from "../utils/mockData.js";
 import { CDN_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const RestaurantContainer: React.FC = () => {
   const [list, setList] = useState<any[]>([]);
@@ -42,7 +43,6 @@ const RestaurantContainer: React.FC = () => {
           <div>No restaurants found.</div>
         ) : (
           (list || []).map((item: any, idx: number) => {
-            // item may be { info: {...} } or sometimes an object itself
             const info = item?.info ?? item ?? {};
             const cuisines = Array.isArray(info.cuisines)
               ? info.cuisines.join(", ")
@@ -50,13 +50,15 @@ const RestaurantContainer: React.FC = () => {
             const imageId = info?.cloudinaryImageId ?? "";
 
             return (
+              <Link    key={info?.id || idx} to={"/restaurants/"+info.id}>
               <RestaurantCard
-                key={info?.id || idx}
+              
                 Name={info?.name ?? "Unknown"}
                 cuisine={cuisines}
                 rating={info?.avgRating ?? info?.avgRatingString ?? "NA"}
                 imageUrl={CDN_URL + imageId}
               />
+              </Link>
             );
           })
         )}
