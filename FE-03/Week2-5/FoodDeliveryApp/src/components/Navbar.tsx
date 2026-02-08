@@ -1,14 +1,16 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 const Navbar: React.FC = () => {
   const[btnname,setbtnname]=useState("Login")
+  const navigate=useNavigate()
   return (
     <div className="Navbar">
         <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li onClick={()=>{navigate("/")}}>Home</li>
+            <li onClick={()=>{navigate("/about")}}>About</li>
+            <li onClick={()=>{navigate("/contact")}}>Contact</li>
             <li>Cart</li>
             <button onClick={()=>{
               btnname==="Login"?setbtnname("Logout"):setbtnname("Login")
