@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
   const status=useIsOnline()
   return (
     <div className="Navbar">
-        <ul>
+        <ul className="flex items-center justify-center gap-6 cursor-pointer">
           <li>online Status:{status ? "online":"offline"}</li>
           <li><Link to="/">Home</Link></li>
   <li><Link to="/about">About</Link></li>
