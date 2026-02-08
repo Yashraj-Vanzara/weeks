@@ -13,6 +13,7 @@ const Navbar: React.FC = () => {
   <li><Link to="/about">About</Link></li>
   <li><Link to="/contact">Contact</Link></li>
   <li><Link to="/cart">Cart</Link></li>
+  <li><Link to="/grocery">Grocery</Link></li>
             <button onClick={() => {
   if (btnname === "Login") {
     setbtnname("Logout");
