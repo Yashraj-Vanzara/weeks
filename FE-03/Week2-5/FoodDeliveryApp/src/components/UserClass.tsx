@@ -7,15 +7,19 @@ class UserClass extends React.Component{
 
         this.state={
             count:0,
-            count2:2
+            
         }
     }
     render(): ReactNode {
-        const{count,count2}=this.state
+        const{count}=this.state
         return (
             <div>
                 <p>{count}</p>
-                <p>{count2}</p>
+              <button onClick={()=>{
+                this.setState({
+                    count:this.state.count+1
+                })
+              }}>Increase Count</button>
                 <h2>{this.props.name}</h2>
                 <p>Location</p>
                 <h2>Email</h2>
