@@ -5,7 +5,7 @@ import Navbar from "./Navbar"
 
 const Header: React.FC = () => {
   return (
-    <div className="flex justify-around items-center h-16 bg-red-300">
+    <div className="flex  overflow-hidden justify-around items-center h-16 bg-amber-50 py-4">
       <Logo/>
       <Navbar/>
     </div>
