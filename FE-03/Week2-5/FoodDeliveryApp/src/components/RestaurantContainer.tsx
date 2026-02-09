@@ -38,7 +38,7 @@ const RestaurantContainer: React.FC = () => {
 
   return (
     <>
-      <div className="RestaurantContainer">
+      <div className="flex items-center justify-between p-6 flex-wrap gap-2">
         {(list || []).length === 0 ? (
           <div>No restaurants found.</div>
         ) : (
