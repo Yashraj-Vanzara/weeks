@@ -17,3 +17,17 @@ const RestaurantCard: React.FC<RestaurantCardProps> = (props) => {
 }
 
 export default RestaurantCard
+
+// ! Higher order component
+export const withOpenLabel = (Component: React.FC<RestaurantCardProps>) => {
+  return (props: RestaurantCardProps) => {
+    return (
+      <div className="relative">
+        <label className="absolute top-2 left-2 bg-green-500 text-white px-2 py-1 rounded z-10">
+          Open
+        </label>
+        <Component {...props} />
+      </div>
+    );
+  };
+};
