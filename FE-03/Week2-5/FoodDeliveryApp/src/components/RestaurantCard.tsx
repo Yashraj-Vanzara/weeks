@@ -1,33 +1,49 @@
-
-type RestaurantCardProps = {
-    Name: string;
-    cuisine: string;
-    rating: number;
-    imageUrl: string;
-};
-const RestaurantCard: React.FC<RestaurantCardProps> = (props) => {
-  return (
-    <div className="w-50 p-4 h-100 bg-slate-100 rounded-2xl flex flex-col gap-2 hover:shadow-2xl cursor-pointer ">
-        <img className="rounded-xl" src={props.imageUrl || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRexBia36ixX_U4FoPlg0iqv2hZIvfRyeH8LQ&s"} alt="image" />
-        <h3 className="font-bold"> {props.Name || "Meghna"}</h3>
-        <p>{props.cuisine || "North Indian, Chinese"}</p>
-        <p>Rating: {props.rating || 4.5} ⭐</p>
-    </div>
-  )
+// @ts-ignore
+import { CDN_URL } from "../utils/constants.js";
+interface RestaurantCardProps {
+  resdata: {
+    info: {
+      name: string;
+      cuisines: string[];
+      avgRating: number;
+      sla: {
+        slaString: string;
+      };
+      cloudinaryImageId?: string;
+    };
+  };
 }
 
-export default RestaurantCard
-
-// ! Higher order component
-export const withOpenLabel = (Component: React.FC<RestaurantCardProps>) => {
-  return (props: RestaurantCardProps) => {
-    return (
-      <div className="relative">
-        <label className="absolute top-2 left-2 bg-green-500 text-white px-2 py-1 rounded z-10">
-          Open
-        </label>
-        <Component {...props} />
-      </div>
-    );
-  };
+const RestaurantCard = ({ resdata }: RestaurantCardProps) => {
+  const { name, cuisines, avgRating, sla } = resdata.info;
+  return (
+    <div data-testid="res" className="res-card w-[350px] auto bg-[#f1f1f1] rounded-lg p-4 hover:shadow-2xl transition-shadow duration-300 hover:scale-[1.02] cursor-pointer">
+      <img
+      className="w-full object-cover h-[350px]"
+        src={
+          CDN_URL +
+          resdata.info.cloudinaryImageId
+        }
+        alt={name}
+      />
+      <h3 className="text-xl font-bold whitespace-nowrap text-ellipsis overflow-clip">{name}</h3>
+      <h4 className="text-lg text-gray-600 whitespace-nowrap text-ellipsis overflow-clip">{cuisines.join(", ")}</h4>
+      <h4 className="text-lg font-semibold">{avgRating} Stars</h4>
+      <h4 className="text-md text-gray-500">{sla.slaString}</h4>
+    </div>
+  );
 };
+
+// @ts-ignore
+export const withisOpenLabel=(RestaurantCard)=>{
+  // @ts-ignore
+  return (props)=>{
+    return (
+      <div >
+        <label className="absolute z-999 border border-slate-200 bg-black text-white px-2">Open </label>
+      <RestaurantCard {...props}/>
+      </div>
+    )
+  }
+}
+export default RestaurantCard;

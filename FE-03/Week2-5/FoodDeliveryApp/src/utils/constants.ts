@@ -1,2 +1,0 @@
-export const LOGO_URL:string="https://t3.ftcdn.net/jpg/03/18/06/54/360_F_318065453_6IYnxkx8xA51PlucgYU8LzdydKUoo2bk.jpg"
-export const CDN_URL:string = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"

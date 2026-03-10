@@ -1,69 +1,66 @@
 import { useEffect, useState } from "react";
+// @ts-ignore
+import { useRestaurantMenu } from "../utils/hooks/useRestaurantMenu.js";
 import { useParams } from "react-router-dom";
+import Shimmer from "./Shimmer.js";
+import ResCategory from "./ResCategory.js";
+import { CDN_URL } from "../utils/constants.js";
 
-const RestaurantMenu: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const [menu, setMenu] = useState<any | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+const RestaurantMenu = () => {
+  const [showindex,setshowindex]=useState(null)
+  const { id } = useParams();
 
-  useEffect(() => {
-    if (!id) return;
-    setLoading(true);
-    setError(null);
+  const resinfo = useRestaurantMenu(id);
+  if (resinfo === null) return <Shimmer />;
 
-    const fetchMenu = async () => {
-      try {
-        const res = await fetch(
-          `https://foodfire.onrender.com/api/menu?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.83106070000001&submitAction=ENTER&restaurantId=${id}`
-        );
+  const info = resinfo?.cards?.[2]?.card?.card?.info;
+  // console.log("info", info);
+  const {
+    name,
+    cuisines = [],
+    costForTwoMessage,
+    avgRating,
+    cloudinaryImageId,
+    backgroundImage,
+    logo,
+  } = info ?? {};
 
-        if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
-        const text = await res.text();
-        if (!text) throw new Error("Empty response");
-
-        let parsed;
-        try {
-          parsed = JSON.parse(text);
-        } catch {
-          throw new Error("Invalid JSON response");
-        }
-
-        setMenu(parsed?.data ?? parsed);
-      } catch (err: any) {
-        console.error("fetchMenu error:", err);
-        setError(err?.message ?? "Unknown error");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchMenu();
-  }, [id]);
-
-  if (!id) return <div>Invalid restaurant id</div>;
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div style={{ color: "red" }}>Error: {error}</div>;
-  if (!menu) return <div>No data</div>;
-
-  // safer: find the restaurant card instead of assuming index 2
-  const restaurantCard =
-    menu?.cards?.find((c: any) => {
-      const t = c?.card?.card?.["@type"] ?? "";
-      return typeof t === "string" && t.toLowerCase().includes("restaurant");
-    }) ?? menu?.cards?.[2];
-
-  const info = restaurantCard?.card?.card?.info;
-  if (!info) return <div>No restaurant info available</div>;
-
-  const { name, cuisines, locality, city, avgRating } = info;
+  const itemCards =
+    resinfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card
+      ?.itemCards ?? [];
+  const categories =
+    resinfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (card: any) =>
+        card?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+    );
+  // console.log("categories", categories);
 
   return (
-    <div>
-      <h1>{name}</h1>
-      <p>{Array.isArray(cuisines) ? cuisines.join(", ") : cuisines ?? "N/A"}</p>
-      <p>{locality ?? city}</p>
-      {typeof avgRating !== "undefined" && <p>Rating: {avgRating}</p>}
+    <div className="text-center">
+      <div className="flex justify-between  gap-10 w-6/12 mx-auto text-left">
+        {" "}
+        <div>
+        <h1 className="font-black text-2xl text-slate-900 mb-2">{name}</h1>
+        <h2 className="font-semibold text-md text-slate-500">
+          {cuisines.join(", ")}
+        </h2>
+        </div>
+        <div>
+        {" "}
+        <img src={CDN_URL +logo } alt="" className="w-[120px] h-auto object-cover" />
+      </div>
+      </div>
+      
+
+      {categories.map((category: any,index:any) => (
+        <ResCategory
+          key={category?.card?.card?.categoryId}
+          data={category?.card?.card}
+          show={index === showindex && true}
+          setshowindex={()=>setshowindex(index)}
+        />
+      ))}
     </div>
   );
 };

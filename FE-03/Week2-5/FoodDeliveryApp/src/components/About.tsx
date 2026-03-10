@@ -1,11 +1,16 @@
-import UserClass from "./UserClass"
-
+import React from 'react'
+import User from './User.js'
+// @ts-ignore
+import UserClass from './UserClass.js'
 
 const About = () => {
   return (
     <div>
-      <UserClass name={"Yashraj"} />
+       {/* <User/>  */}
+       <UserClass name="Yashraj" location="Unknown" email="vanzarayashraj@gmail.com"/>
+
     </div>
+
   )
 }
 
