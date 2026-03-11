@@ -4,16 +4,21 @@ import { formValidation } from "../utils/formValidation";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { addUser } from "../utils/userSlice";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const [isSignIn, setSignIn] = useState<boolean>(true);
   const [error, seterror] = useState<string>("");
   const emailref = useRef<HTMLInputElement>(null);
   const passref = useRef<HTMLInputElement>(null);
+  const nameref = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const toggleForm = () => {
     setSignIn(!isSignIn);
@@ -33,7 +38,22 @@ const Login = () => {
           .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
-            navigate("/browse");
+            updateProfile(user, {
+              displayName: nameref?.current?.value,
+            })
+              .then(() => {
+                dispatch(
+                  addUser({
+                    uid: user.uid,
+                    email: user.email,
+                    displayName: user.displayName,
+                  }),
+                );
+                navigate("/browse");
+              })
+              .catch((error) => {
+                seterror(error.message);
+              });
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -75,6 +95,7 @@ const Login = () => {
         </h1>
         {!isSignIn && (
           <input
+            ref={nameref}
             type="text"
             placeholder="Name"
             className="h-12 bg-white/10 texst-white px-2 rounded-sm"
