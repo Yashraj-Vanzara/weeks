@@ -1,66 +1,57 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { formValidation } from "../utils/formValidation";
-import {  createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import {auth} from "../utils/firebase"
-import { useNavigate } from "react-router-dom";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Login = () => {
-  const [isSignIn,setSignIn]=useState<boolean>(true)
-  const[error,seterror]=useState<string>('')
-  const emailref=useRef<HTMLInputElement>(null)
-  const passref=useRef<HTMLInputElement>(null)
-  const navigate=useNavigate()
+  const [isSignIn, setSignIn] = useState<boolean>(true);
+  const [error, seterror] = useState<string>("");
+  const emailref = useRef<HTMLInputElement>(null);
+  const passref = useRef<HTMLInputElement>(null);
 
-  const toggleForm=()=>{
-    setSignIn(!isSignIn)
+  const toggleForm = () => {
+    setSignIn(!isSignIn);
+  };
+  const handleForm = (e: React.SyntheticEvent) => {
+    e.preventDefault();
 
-  }
-  const handleForm=(e:React.SyntheticEvent)=>{
-    e.preventDefault()
-  
-   const emailvalue=emailref?.current?.value??""
-   const passvalue=passref?.current?.value??""
-    const res= formValidation( emailvalue,passvalue)
-    seterror(res??"")
+    const emailvalue = emailref?.current?.value ?? "";
+    const passvalue = passref?.current?.value ?? "";
+    const res = formValidation(emailvalue, passvalue);
+    seterror(res ?? "");
 
-    if(!res){
-      if(!isSignIn){
-        // signup
+    if (!res) {
+      if (!isSignIn) {
         createUserWithEmailAndPassword(auth, emailvalue, passvalue)
-  .then((userCredential) => {
-    const user = userCredential.user;
-    console.log(user)
-    navigate("/browse")
-    
-    
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    seterror(errorCode+"-"+errorMessage)
-  });
-      }
-      else{
+          .then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            seterror(errorCode + "-" + errorMessage);
+          });
+      } else {
         // signin
-        
-signInWithEmailAndPassword(auth, emailvalue, passvalue)
-  .then((userCredential) => {
-    
-    const user = userCredential.user;
-    if(user) navigate("/browse")
-    
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-      seterror(errorCode+"-"+errorMessage)
-  });
+
+        signInWithEmailAndPassword(auth, emailvalue, passvalue)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            seterror(errorCode + "-" + errorMessage);
+          });
       }
     }
-  
-
-  }
+  };
   return (
     <div className="relative h-screen w-full">
       <Header />
@@ -71,14 +62,45 @@ signInWithEmailAndPassword(auth, emailvalue, passvalue)
         alt=""
       />
 
-      <form onSubmit={(e)=>e.preventDefault()} className=" rounded-sm flex flex-col gap-7 absolute top-1/2 left-1/2 z-100 w-3/12 -translate-x-1/2 -translate-y-1/2 bg-gray-900/80 p-12 text-white">
-        <h1 className="text-2xl font-bold">{isSignIn?"Sign In":"Sign Up"}</h1>
-        {!isSignIn &&   <input type="text" placeholder="Name" className="h-12 bg-white/10 texst-white px-2 rounded-sm" /> }
-        <input ref={emailref}  type="email" placeholder="Email" className="h-12 bg-white/10 texst-white px-2 rounded-sm" />
-        <input ref={passref}  type="password" placeholder="Password" className="h-12   bg-white/10  text-white px-2 rounded-sm" />
-        <button onClick={handleForm}  type="submit" className="cursor-pointer bg-red-500/90 hover:bg-red-500/75 w-fit mx-auto py-1 px-3 rounded-sm ">Submit</button>
-        <p onClick={toggleForm} className="cursor-pointer">{isSignIn?"New to Netflix ? SignUp Now":"Already registerd ? SignIn now"}</p>
-       {error &&  <p className="text-red-500">{error}</p> }
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className=" rounded-sm flex flex-col gap-7 absolute top-1/2 left-1/2 z-100 w-3/12 -translate-x-1/2 -translate-y-1/2 bg-gray-900/80 p-12 text-white"
+      >
+        <h1 className="text-2xl font-bold">
+          {isSignIn ? "Sign In" : "Sign Up"}
+        </h1>
+        {!isSignIn && (
+          <input
+            type="text"
+            placeholder="Name"
+            className="h-12 bg-white/10 texst-white px-2 rounded-sm"
+          />
+        )}
+        <input
+          ref={emailref}
+          type="email"
+          placeholder="Email"
+          className="h-12 bg-white/10 texst-white px-2 rounded-sm"
+        />
+        <input
+          ref={passref}
+          type="password"
+          placeholder="Password"
+          className="h-12   bg-white/10  text-white px-2 rounded-sm"
+        />
+        <button
+          onClick={handleForm}
+          type="submit"
+          className="cursor-pointer bg-red-500/90 hover:bg-red-500/75 w-fit mx-auto py-1 px-3 rounded-sm "
+        >
+          Submit
+        </button>
+        <p onClick={toggleForm} className="cursor-pointer">
+          {isSignIn
+            ? "New to Netflix ? SignUp Now"
+            : "Already registerd ? SignIn now"}
+        </p>
+        {error && <p className="text-red-500">{error}</p>}
       </form>
     </div>
   );
