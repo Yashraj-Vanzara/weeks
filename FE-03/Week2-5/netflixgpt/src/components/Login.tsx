@@ -1,6 +1,13 @@
+import { useState } from "react";
 import Header from "./Header";
 
 const Login = () => {
+  const [isSignIn,setSignIn]=useState(true)
+
+  const toggleForm=()=>{
+    setSignIn(!isSignIn)
+
+  }
   return (
     <div className="relative h-screen w-full">
       <Header />
@@ -12,11 +19,12 @@ const Login = () => {
       />
 
       <form className=" rounded-sm flex flex-col gap-7 absolute top-1/2 left-1/2 z-100 w-3/12 -translate-x-1/2 -translate-y-1/2 bg-gray-900/80 p-12 text-white">
-        <h1 className="text-2xl font-bold">Sign In</h1>
+        <h1 className="text-2xl font-bold">{isSignIn?"Sign In":"Sign Up"}</h1>
+        {!isSignIn &&   <input type="text" placeholder="Name" className="h-12 bg-white/10 texst-white px-2 rounded-sm" /> }
         <input type="email" placeholder="Email" className="h-12 bg-white/10 texst-white px-2 rounded-sm" />
         <input type="password" placeholder="Password" className="h-12   bg-white/10  text-white px-2 rounded-sm" />
-        <button type="submit" className="cursor-pointer bg-red-500/90 hover:bg-red-500/75 w-fit mx-auto py-1 px-3 rounded-sm ">Submit</button>
-        <p>New to Netflix ? SignUp Now</p>
+        <button  type="submit" className="cursor-pointer bg-red-500/90 hover:bg-red-500/75 w-fit mx-auto py-1 px-3 rounded-sm ">Submit</button>
+        <p onClick={toggleForm} className="cursor-pointer">{isSignIn?"New to Netflix ? SignUp Now":"Already registerd ? SignIn now"}</p>
       </form>
     </div>
   );
