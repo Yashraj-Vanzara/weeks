@@ -1,7 +1,7 @@
 import {
   createBrowserRouter,
   RouterProvider,
-  useNavigate,
+
 } from "react-router-dom";
 import Browse from "./Browse";
 import Login from "./Login";
@@ -13,8 +13,7 @@ import { addUser, removeUser } from "../utils/userSlice";
 
 const Body = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-
+ 
   const appRouter = createBrowserRouter([
     {
       path: "/",
@@ -37,10 +36,8 @@ const Body = () => {
             displayName: displayName,
           }),
         );
-        navigate("/browse");
       } else {
         dispatch(removeUser());
-        navigate("/");
       }
     });
   }, []);
