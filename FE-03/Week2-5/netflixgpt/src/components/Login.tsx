@@ -1,12 +1,16 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { formValidation } from "../utils/formValidation";
+import {  createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {auth} from "../utils/firebase.js"
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [isSignIn,setSignIn]=useState<boolean>(true)
   const[error,seterror]=useState<string>('')
   const emailref=useRef<HTMLInputElement>(null)
   const passref=useRef<HTMLInputElement>(null)
+  const navigate=useNavigate()
 
   const toggleForm=()=>{
     setSignIn(!isSignIn)
@@ -19,6 +23,41 @@ const Login = () => {
    const passvalue=passref?.current?.value??""
     const res= formValidation( emailvalue,passvalue)
     seterror(res??"")
+
+    if(!res){
+      if(!isSignIn){
+        // signup
+        createUserWithEmailAndPassword(auth, emailvalue, passvalue)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    console.log(user)
+    navigate("/browse")
+    
+    
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    seterror(errorCode+"-"+errorMessage)
+  });
+      }
+      else{
+        // signin
+        
+signInWithEmailAndPassword(auth, emailvalue, passvalue)
+  .then((userCredential) => {
+    
+    const user = userCredential.user;
+    if(user) navigate("/browse")
+    
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+      seterror(errorCode+"-"+errorMessage)
+  });
+      }
+    }
   
 
   }
