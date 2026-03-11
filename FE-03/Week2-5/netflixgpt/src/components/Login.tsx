@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { formValidation } from "../utils/formValidation";
 import {  createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import {auth} from "../utils/firebase.js"
+import {auth} from "../utils/firebase"
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
