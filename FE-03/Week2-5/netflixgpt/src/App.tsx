@@ -1,11 +1,9 @@
-
+import Body from "./components/Body";
 
 const App = () => {
-  return (
-    <div className="w-full flex justify-center items-center h-screen bg-slate-600 text-white ">
-      NetflixGpt
-    </div>
-  )
-}
+  return <>
+  <Body/>
+  </>;
+};
 
-export default App
+export default App;
