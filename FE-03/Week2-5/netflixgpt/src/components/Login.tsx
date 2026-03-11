@@ -7,7 +7,6 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { addUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
 
@@ -17,7 +16,6 @@ const Login = () => {
   const emailref = useRef<HTMLInputElement>(null);
   const passref = useRef<HTMLInputElement>(null);
   const nameref = useRef<HTMLInputElement>(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const toggleForm = () => {
@@ -49,7 +47,6 @@ const Login = () => {
                     displayName: user.displayName,
                   }),
                 );
-                navigate("/browse");
               })
               .catch((error) => {
                 seterror(error.message);
@@ -66,7 +63,7 @@ const Login = () => {
         signInWithEmailAndPassword(auth, emailvalue, passvalue)
           .then((userCredential) => {
             const user = userCredential.user;
-            if (user) navigate("/browse");
+            console.log(user);
           })
           .catch((error) => {
             const errorCode = error.code;
