@@ -1,8 +1,4 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Browse from "./Browse";
 import Login from "./Login";
 import { useEffect } from "react";
@@ -13,7 +9,7 @@ import { addUser, removeUser } from "../utils/userSlice";
 
 const Body = () => {
   const dispatch = useDispatch();
- 
+
   const appRouter = createBrowserRouter([
     {
       path: "/",
