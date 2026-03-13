@@ -1,8 +1,13 @@
+import VideoContainer from "./VideoContainer"
+import VideoTitle from "./VideoTitle"
 
 
 const MainContainer = () => {
   return (
-    <div>MainContainer</div>
+    <div>
+        <VideoContainer/>
+        <VideoTitle/>
+    </div>
   )
 }
 
