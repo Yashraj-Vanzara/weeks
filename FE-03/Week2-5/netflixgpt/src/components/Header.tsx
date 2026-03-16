@@ -39,7 +39,7 @@ const Header = () => {
     });
   }, []);
   return (
-    <div className="px-16 py-10 absolute z-99 w-full flex justify-between bg-linear-to-b from-black to-transparent">
+    <div className="px-16 py-4 absolute z-99 w-full flex justify-between bg-linear-to-b from-[#212121] via-neutral-900 to-neutral-900/50 ">
       <img
         className="w-44 h-auto  object-cover"
         src="/netflix.svg"
