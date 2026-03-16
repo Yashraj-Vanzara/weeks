@@ -1,4 +1,5 @@
 import { FaPlay } from "react-icons/fa6";
+//@ts-expect-error : if not string
 const VideoTitle = ({ title, overview }) => {
   return (
     <div className=" absolute top-1/2 px-12 ">
