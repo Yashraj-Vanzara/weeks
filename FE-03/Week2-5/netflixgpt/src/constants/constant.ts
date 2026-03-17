@@ -8,3 +8,4 @@ export const options = {
 };
 
 export const url = 'https://api.themoviedb.org/3/movie/now_playing';
+export const img_cdn="https://image.tmdb.org/t/p/w500/"
