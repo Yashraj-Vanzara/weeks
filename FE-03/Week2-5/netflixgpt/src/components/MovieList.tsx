@@ -15,7 +15,7 @@ const MovieList = ({ title, movies }: MovieListProps) => {
   return (
     <div className="px-6">
       <h1 className="font-bold text-4xl py-4">{title}</h1>
-    <div className="flex overflow-x-scroll ">
+    <div className="flex overflow-x-scroll no-scrollbar ">
       
       <div className="flex">
         {movies?.map((mov) => (
