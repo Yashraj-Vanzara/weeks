@@ -11,11 +11,11 @@ const SecondaryContainer = () => {
         <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
 
         {/* @ts-expect-error if not error */}
-        <MovieList title={"Trending"} movies={movies.nowPlayingMovies} />
+        <MovieList title={"Trending"} movies={movies.trendingMovies} />
         {/* @ts-expect-error if not error */}
-        <MovieList title={"Popular Movies"} movies={movies.nowPlayingMovies} />
+        <MovieList title={"Popular Movies"} movies={movies.popularMovies} />
         {/* @ts-expect-error if not error */}
-        <MovieList title={"Upcoming Movies"} movies={movies.nowPlayingMovies} />
+        <MovieList title={"Upcoming Movies"} movies={movies.upcomingMovies} />
       </div>
     </div>
   );
