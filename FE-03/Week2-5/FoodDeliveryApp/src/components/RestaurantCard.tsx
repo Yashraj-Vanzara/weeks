@@ -17,9 +17,9 @@ interface RestaurantCardProps {
 const RestaurantCard = ({ resdata }: RestaurantCardProps) => {
   const { name, cuisines, avgRating, sla } = resdata.info;
   return (
-    <div data-testid="res" className="res-card w-[350px] auto bg-[#f1f1f1] rounded-lg p-4 hover:shadow-2xl transition-shadow duration-300 hover:scale-[1.02] cursor-pointer">
+    <div data-testid="res" className="res-card w-full bg-[#f1f1f1] rounded-lg p-4 hover:shadow-2xl transition-shadow duration-300 hover:scale-[1.02] cursor-pointer">
       <img
-      className="w-full object-cover h-[350px]"
+      className="h-52 w-full object-cover sm:h-60 md:h-64"
         src={
           CDN_URL +
           resdata.info.cloudinaryImageId
@@ -39,8 +39,8 @@ export const withisOpenLabel=(RestaurantCard)=>{
   // @ts-ignore
   return (props)=>{
     return (
-      <div >
-        <label className="absolute z-999 border border-slate-200 bg-black text-white px-2">Open </label>
+      <div className="relative">
+        <label className="absolute left-2 top-2 z-10 border border-slate-200 bg-black text-white px-2">Open </label>
       <RestaurantCard {...props}/>
       </div>
     )

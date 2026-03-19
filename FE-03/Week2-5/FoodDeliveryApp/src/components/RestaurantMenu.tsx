@@ -37,8 +37,8 @@ const RestaurantMenu = () => {
   // console.log("categories", categories);
 
   return (
-    <div className="text-center">
-      <div className="flex justify-between  gap-10 w-6/12 mx-auto text-left">
+    <div className="px-4 py-4 text-center sm:px-6 md:px-8">
+      <div className="mx-auto flex w-full max-w-3xl flex-col gap-4 text-left flex-row sm:items-center sm:justify-between sm:gap-8">
         {" "}
         <div>
         <h1 className="font-black text-2xl text-slate-900 mb-2">{name}</h1>
@@ -46,9 +46,9 @@ const RestaurantMenu = () => {
           {cuisines.join(", ")}
         </h2>
         </div>
-        <div>
+        <div className="self-start sm:self-auto">
         {" "}
-        <img src={CDN_URL +logo } alt="" className="w-[120px] h-auto object-cover" />
+        <img src={CDN_URL +logo } alt="" className="h-auto w-20 object-cover sm:w-24 md:w-[120px]" />
       </div>
       </div>
       

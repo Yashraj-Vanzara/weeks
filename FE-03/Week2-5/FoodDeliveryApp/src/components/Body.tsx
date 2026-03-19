@@ -28,11 +28,11 @@ const Body = () => {
   };
   const WithisOpenLabelCard=withisOpenLabel(RestaurantCard)
   return (
-    <div className=" w-full h-full   px-12 py-14  ">
-      <div className="flex w-fit mb-2 items-center gap-2 py -6">
-        <div className="Search">
+    <div className="w-full h-full px-4 py-6 sm:px-6 sm:py-8 md:px-10 md:py-10">
+      <div className="mb-4 flex w-full flex-col gap-2 sm:flex-row sm:items-center md:gap-3">
+        <div className="Search flex w-full items-center gap-2 sm:flex-1">
           <input
-          className="outline-none px-2 py-1 border rounded-md mr-2"
+          className="w-fit min-w-0 rounded-md border px-2 py-1 text-sm outline-none md:text-base"
             type="text"
             data-testid="SearchInput"
             value={searchtext}
@@ -40,7 +40,7 @@ const Body = () => {
             onChange={(e) => setsearchtext(e.target.value)}
           />
           <button
-          className="bg-purple-200 cursor-pointer border rounded-sm px-2 py-1"
+          className="shrink-0 cursor-pointer rounded-sm border bg-purple-200 px-2 py-1 text-xs whitespace-nowrap sm:text-sm md:text-base"
             onClick={() => {
               const filteredData = listofrestaurant.filter((res) =>
                 res.info.name.toLowerCase().includes(searchtext.toLowerCase()),
@@ -60,7 +60,7 @@ const Body = () => {
             setfilteredrestaurant(filterdata);
             //    setlistofrestaurant(listofrestaurant  .filter(res=>res.restaurants.info.avgRating>4.7))
           }}
-          className="bg-purple-100 cursor-pointer border rounded-sm px-2 py-1"
+          className="w-fit cursor-pointer rounded-sm border bg-purple-100 px-2 py-1 text-xs whitespace-nowrap sm:w-auto sm:text-sm md:text-base"
         >
           Top Rated Restaurants
         </button>
@@ -68,7 +68,7 @@ const Body = () => {
       {listofrestaurant.length === 0 ? (
         <Shimmer />
       ) : (
-        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 items-center ">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
           {filteredrestaurant.map((restaurant: any) => (
             <Link key={restaurant.info.id} to={`/restaurant/${restaurant.info.id}`}>
               {restaurant.info.isOpen?(

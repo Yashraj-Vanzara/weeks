@@ -7,14 +7,21 @@
 
 .shimmer-card {
     border-radius: 10px;
-    margin-top: 2em;
-    width: 20em;
-    height: 27.5em;
-    margin-left: 1em;
+    margin-top: 1rem;
+    width: min(20rem, calc(100% - 1rem));
+    min-height: 24rem;
+    margin-left: 0;
     padding: 1rem;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     background-color: #f0f0f0;
     overflow: hidden;
+}
+
+@media (min-width: 640px) {
+    .shimmer-card {
+        width: 18rem;
+        margin-left: 0.75rem;
+    }
 }
 
 .shimmer-card * {

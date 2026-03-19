@@ -40,39 +40,39 @@ const ItemList = ({ card, showActions = true }) => {
           return (
             <div
               key={info.id}
-              className="mb-3 py-4 border-gray-300 border-b-2 text-left flex gap-2"
+              className="mb-3 flex  gap-3 border-b-2 border-gray-300 py-4 text-left sm:flex-row sm:gap-4"
             >
-              <div className="py-2 w-9/12">
+              <div className="w-full py-2 sm:w-9/12">
                 <span className="font-bold text-md">{info.name} </span>
                 <span>- ₹ {displayPrice}</span>
                 <p className="text-[14px]">{info.description}</p>
               </div>
 
-              <div className="w-3/12">
+              <div className="w-9/12 sm:w-3/12">
                 {info.imageId && (
                   <img
                     src={CDN_URL + info.imageId}
                     alt=""
-                    className="w-full object-cover h-auto"
+                    className="h-auto w-full max-w-44 object-cover"
                   />
                 )}
 
                 {showActions && (
-                  <>
+                  <div className="mt-2 flex flex-wrap gap-2">
                     <button
-                      className="relative -top-4 bg-slate-700/75 px-2 py-1 rounded-md mr-2 text-white cursor-pointer"
+                      className="cursor-pointer rounded-md bg-slate-700/75 px-2 py-1 text-white"
                       onClick={() => handleAdditem(info, isCartItem)}
                     >
                       Add+
                     </button>
 
                     <button
-                      className="relative -top-4 bg-slate-700/75 px-2 py-1 rounded-md text-white cursor-pointer"
+                      className="cursor-pointer rounded-md bg-slate-700/75 px-2 py-1 text-white"
                       onClick={() => handledelete(info.id)}
                     >
                       Delete-
                     </button>
-                  </>
+                  </div>
                 )}
               </div>
             </div>

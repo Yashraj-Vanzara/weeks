@@ -15,12 +15,12 @@ const Header: React.FC = () => {
   const {loggedInUser}=useContext(UserContext)
  
   return (
-    <div className="flex w-full h-14 px-28 py-12 justify-between items-center">
+    <div className="flex w-full flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 md:px-10 lg:px-16">
       <div className="logocontainer">
-        <img className="w-38 h-32" src={LOGO_URL} alt="logo" />
+        <img className="h-16 w-auto sm:h-20" src={LOGO_URL} alt="logo" />
       </div>
       <div >
-        <ul className="flex  items-center gap-8  cursor-pointer text-purple-900 font-semibold">
+        <ul className="flex flex-wrap items-center justify-center gap-3 text-sm cursor-pointer text-purple-900 font-semibold sm:justify-end sm:gap-5 sm:text-base">
           <li>
             {
               isOnline?"🟢":"🔴"

@@ -11,9 +11,9 @@ const Cart = () => {
   };
 
   return (
-    <div className="w-full m-10 p-10">
-      <div className="flex justify-center items-center gap-8">
-        <h1 className="font-bold text-2xl">Cart</h1>
+    <div className="w-full px-4 py-6 sm:px-6 md:px-10 md:py-10">
+      <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-6">
+        <h1 className="text-2xl font-bold">Cart</h1>
         <button
           className="px-2 py-1 cursor-pointer hover:bg-black/85 bg-black text-white rounded-md"
           onClick={handleclick}
@@ -22,7 +22,7 @@ const Cart = () => {
         </button>
       </div>
 
-      <div className="w-6/12 mx-auto p-4 border-slate-300">
+      <div className="mx-auto mt-4 w-full max-w-3xl p-2 sm:p-4 border-slate-300">
         {cartdata.length > 0 ? (
           <ItemList card={cartdata} showActions={false} />
         ) : (

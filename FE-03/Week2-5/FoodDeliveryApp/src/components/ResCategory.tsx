@@ -7,11 +7,11 @@ const ResCategory = ({ data,show,setshowindex }) => {
   return (
     <div>
       {/* Header */}
-      <div className="w-6/12 mx-auto my-4 p-4 shadow-md hover:shadow-xl cursor-pointer bg-slate-100 " onClick={()=>{
+      <div className="mx-auto my-4 w-full max-w-3xl cursor-pointer bg-slate-100 p-3 shadow-md hover:shadow-xl sm:p-4" onClick={()=>{
         setshowindex()
       }}>
         <div className="flex justify-between">
-        <span className="text-xl font-semibold">{data.title}({data.itemCards.length})</span>
+        <span className="text-base font-semibold sm:text-lg md:text-xl">{data.title}({data.itemCards.length})</span>
         <span>▼</span></div>
         <div>
      {show &&    <ItemList card={data.itemCards}/>}
