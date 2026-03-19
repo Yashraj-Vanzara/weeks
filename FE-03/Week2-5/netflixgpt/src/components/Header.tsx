@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 import { setGpt } from "../utils/gptSlice";
+import { Supportedlang } from "../constants/constant";
 
 const Header = () => {
   // @ts-expect-error Redux store type is not properly typed
@@ -52,6 +53,11 @@ const Header = () => {
       />
       {store && (
         <div className="flex gap-2  items-center">
+          <select className="p-2 bg-slate-400 text-white m-2" >
+           {Supportedlang.map((lang=>(
+            <option key={lang.code} value={lang.code}>{lang.name}</option>
+           )))}
+          </select>
           <button onClick={handleGpt} className="px-2 py-2 cursor-pointer rounded-md text-white bg-purple-500">GptSearch</button>
           <img src="/user-icon.png" alt="user" />
           <p className="text-white">{store?.displayName}</p>
