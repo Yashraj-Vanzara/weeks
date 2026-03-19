@@ -47,6 +47,7 @@ const Header = () => {
       />
       {store && (
         <div className="flex gap-2 p-2 items-center">
+          <button className="px-2 py-2 cursor-pointer rounded-md text-white bg-purple-500">GptSearch</button>
           <img src="/user-icon.png" alt="user" />
           <p className="text-white">{store?.displayName}</p>
           <button
