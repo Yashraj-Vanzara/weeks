@@ -2,7 +2,7 @@ import Card from "./Card";
 interface Movie {
   id: number;
   title: string;
-  poster_path: string;
+  poster_path: string | null;
 }
 
 interface MovieListProps {
