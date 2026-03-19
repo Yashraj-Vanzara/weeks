@@ -4,6 +4,7 @@ import { auth } from "../utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
+import { setGpt } from "../utils/gptSlice";
 
 const Header = () => {
   // @ts-expect-error Redux store type is not properly typed
@@ -38,6 +39,10 @@ const Header = () => {
       }
     });
   }, []);
+
+  const handleGpt=()=>{
+    dispatch(setGpt())
+  }
   return (
     <div className="px-16 py-4 absolute z-99 w-full flex justify-between bg-linear-to-b from-[#212121] via-neutral-900 to-neutral-900/50 ">
       <img
@@ -46,8 +51,8 @@ const Header = () => {
         alt="netflixlogo"
       />
       {store && (
-        <div className="flex gap-2 p-2 items-center">
-          <button className="px-2 py-2 cursor-pointer rounded-md text-white bg-purple-500">GptSearch</button>
+        <div className="flex gap-2  items-center">
+          <button onClick={handleGpt} className="px-2 py-2 cursor-pointer rounded-md text-white bg-purple-500">GptSearch</button>
           <img src="/user-icon.png" alt="user" />
           <p className="text-white">{store?.displayName}</p>
           <button
