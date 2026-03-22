@@ -47,7 +47,7 @@ User input: ${userInput}
     const tmdbresult = await Promise.all(promiseArray);
     dispatch(addGptMovies({ movienames: gptMovies, movieResults: tmdbresult }));
 
-    console.log(tmdbresult);
+  
 
   };
   return (

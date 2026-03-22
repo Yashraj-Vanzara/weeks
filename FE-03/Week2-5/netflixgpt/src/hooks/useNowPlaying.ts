@@ -10,7 +10,7 @@ const getNowPlaying= async ()=>{
 
     const res=await fetch(url,options)
     const json=await res.json()
-    console.log("Now playing",json.results)
+
     dispatch(addNowPlayingMovies(json.results))
 
 

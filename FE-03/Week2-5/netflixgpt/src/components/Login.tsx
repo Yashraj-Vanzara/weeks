@@ -35,7 +35,6 @@ const Login = () => {
         createUserWithEmailAndPassword(auth, emailvalue, passvalue)
           .then((userCredential) => {
             const user = userCredential.user;
-            console.log(user);
             updateProfile(user, {
               displayName: nameref?.current?.value,
             })
@@ -63,7 +62,10 @@ const Login = () => {
         signInWithEmailAndPassword(auth, emailvalue, passvalue)
           .then((userCredential) => {
             const user = userCredential.user;
-            console.log(user);
+            if(!user){
+              console.log("NOt found")
+            }
+            
           })
           .catch((error) => {
             const errorCode = error.code;
