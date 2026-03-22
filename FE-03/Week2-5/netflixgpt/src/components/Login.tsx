@@ -76,7 +76,7 @@ const Login = () => {
   return (
     <div className="relative h-screen w-full">
       <Header />
-      <div className="absolute inset-0 bg-black/45 z-9" />
+      <div className="absolute inset-0  z-9" />
       <img
         className="absolute inset-0 h-full w-full object-cover"
         src="https://assets.nflxext.com/ffe/siteui/vlv3/b9448d14-5983-4ffc-a4d6-e22223108466/web/IN-en-20260302-TRIFECTA-perspective_1ef91182-c674-4632-9bec-d185993ab154_large.jpg"
@@ -85,7 +85,7 @@ const Login = () => {
 
       <form
         onSubmit={(e) => e.preventDefault()}
-        className=" rounded-sm flex flex-col gap-7 absolute top-1/2 left-1/2 z-100 w-3/12 -translate-x-1/2 -translate-y-1/2 bg-gray-900/80 p-12 text-white"
+        className=" rounded-sm flex flex-col gap-7 absolute top-1/2 left-1/2 z-100 w-fit sm:w-6/12 md:w-3/12 -translate-x-1/2 -translate-y-1/2 bg-gray-900/80 p-12 text-white"
       >
         <h1 className="text-2xl font-bold">
           {isSignIn ? "Sign In" : "Sign Up"}

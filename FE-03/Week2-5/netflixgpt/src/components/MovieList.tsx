@@ -14,7 +14,7 @@ const MovieList = ({ title, movies }: MovieListProps) => {
   console.log("list", movies);
   return (
     <div className="px-6">
-      <h1 className="font-bold text-4xl py-4">{title}</h1>
+      <h1 className="font-bold text-xl md:text-4xl py-4">{title}</h1>
     <div className="flex overflow-x-scroll no-scrollbar ">
       
       <div className="flex">

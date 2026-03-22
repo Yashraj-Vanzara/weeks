@@ -51,20 +51,20 @@ User input: ${userInput}
 
   };
   return (
-    <div className="pt-[10%] flex justify-center ">
+    <div className="pt-[40%] md:pt-[12%] flex justify-center ">
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-1/2   bg-black grid grid-cols-12"
+        className=" w-full md:w-1/2   bg-black grid grid-cols-12"
       >
         <input
           ref={searchRef}
-          className="col-span-9 p-4 m-4 text-black bg-white "
+          className="col-span-9 p-2 md:p-4 m-4 text-black bg-white "
           type="text"
           placeholder={lang[langkey].gptplaceholder}
         />
         <button
           onClick={handleSearch}
-          className=" cursor-pointer py-2 px-4 m-4 bg-red-700 col-span-3 text-white rounded-lg"
+          className=" cursor-pointer py-0 px-0 m-4 bg-red-700 col-span-3 text-white rounded-lg"
         >
           {lang[langkey].search}
         </button>
